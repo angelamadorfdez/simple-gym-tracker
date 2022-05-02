@@ -4,7 +4,9 @@
     <% @workouts.each do |workout| %>
       <div class="bg-blue-200 sm:mr-6 mb-6 p-4">
 
-        <p class="mb-4 w-full font-bold">Fecha: <%= workout.day%></p>
+        <p class="w-full py-2 text-lg">Fecha: <b><%= workout.day.to_formatted_s(:short) %></b></p>
+
+        <hr class="border-blue-600 my-4">
 
         <table class="w-full">
           <tr>
