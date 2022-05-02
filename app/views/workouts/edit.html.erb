@@ -1,0 +1,7 @@
+
+<%= render "form", workout: @workout %>
+
+<div class="text-white flex my-12">
+  <%= link_to "Ver todos", workouts_path, class:"bg-blue-600 hover:bg-blue-800 m-2 py-2 px-4" %>
+  <%= button_to "Destruir", @workout, method: :delete, class:"bg-red-600 hover:bg-red-800 m-2 py-2 px-4" %>
+</div>

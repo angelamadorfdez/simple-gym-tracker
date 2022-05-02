@@ -1,0 +1,43 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  v_pull_weight: 1
+  v_pull_reps: 1
+  v_pull_series: 1
+  v_push_weight: 1
+  v_push_reps: 1
+  v_push_series: 1
+  h_pull_weight: 1
+  h_pull_reps: 1
+  h_pull_series: 1
+  h_push_weight: 1
+  h_push_reps: 1
+  h_push_series: 1
+  squat_weight: 1
+  squat_reps: 1
+  squat_series: 1
+  dead_lift_weight: 1
+  dead_lift_reps: 1
+  dead_lift_series: 1
+  day: 2020-01-01
+
+two:
+  v_pull_weight: 1
+  v_pull_reps: 1
+  v_pull_series: 1
+  v_push_weight: 1
+  v_push_reps: 1
+  v_push_series: 1
+  h_pull_weight: 1
+  h_pull_reps: 1
+  h_pull_series: 1
+  h_push_weight: 1
+  h_push_reps: 1
+  h_push_series: 1
+  squat_weight: 1
+  squat_reps: 1
+  squat_series: 1
+  dead_lift_weight: 1
+  dead_lift_reps: 1
+  dead_lift_series: 1
+  day: 2020-01-01

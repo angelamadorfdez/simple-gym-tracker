@@ -12,6 +12,21 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <div class="container mx-auto px-4 my-12">
+    <%= render "layouts/header" %>
+    </div>
+
+
+    <div class="container mx-auto px-4 my-6">
+
+      <% if notice.present? %>
+        <p class="text-green-800 bg-green-200 p-2 mb-4"><%= notice %></p>
+      <% end %>
+
+      <%= yield %>  
+
+    </div>
+
   </body>
 </html>

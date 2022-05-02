@@ -1,0 +1,94 @@
+<%= form_with(model: workout) do |form| %>
+  <% if workout.errors.any? %>
+    <div class="text-red-800 bg-red-200 p-2 mb-4">
+      <h2><%= pluralize(workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
+
+      <ul>
+        <% workout.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="w-full sm:w-2/3 bg-blue-200 p-4">
+    
+    <div class="w-full sm:w-1/">
+      <p class="p-2"><b>Fecha:</b> <%= form.date_field :day, class:"text-center"%></p>
+    </div>
+
+    <div class="p-2">
+      <table>
+        <tr>
+          <th class="text-left">Ejercicio</th>
+          <th class="text-center">Peso</th>
+          <th class="text-center">Reps / Series</th>
+        </tr>
+        <tr>
+          <td class="text-left">Dominadas</td>
+          <td class="text-center">
+            <%= form.number_field :v_pull_weight, class:"w-1/3 text-center" %> kg
+          </td>
+          <td class="text-center">
+            <%= form.number_field :v_pull_reps, class:"w-1/3 text-center" %> x <%= form.number_field :v_pull_series, class:"w-1/3 text-center" %>
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left">Press Militar</td>
+          <td class="text-center">
+            <%= form.number_field :v_push_weight, class:"w-1/3 text-center" %> kg
+          </td>
+          <td class="text-center">
+            <%= form.number_field :v_push_reps, class:"w-1/3 text-center" %> x <%= form.number_field :v_push_series, class:"w-1/3 text-center" %>
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left">Remo</td>
+          <td class="text-center">
+            <%= form.number_field :h_pull_weight, class:"w-1/3 text-center" %> kg
+          </td>
+          <td class="text-center">
+            <%= form.number_field :h_pull_reps, class:"w-1/3 text-center" %> x <%= form.number_field :h_pull_series, class:"w-1/3 text-center" %>
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left">Press Banca</td>
+          <td class="text-center">
+            <%= form.number_field :h_push_weight, class:"w-1/3 text-center" %> kg
+          </td>
+          <td class="text-center">
+            <%= form.number_field :h_push_reps, class:"w-1/3 text-center" %> x <%= form.number_field :h_push_series, class:"w-1/3 text-center" %>
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left">Sentadilla</td>
+          <td class="text-center">
+            <%= form.number_field :squat_weight, class:"w-1/3 text-center" %> kg
+          </td>
+          <td class="text-center">
+            <%= form.number_field :squat_reps, class:"w-1/3 text-center" %> x <%= form.number_field :squat_series, class:"w-1/3 text-center" %>
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left">Peso Muerto</td>
+          <td class="text-center">
+            <%= form.number_field :dead_lift_weight, class:"w-1/3 text-center" %> kg
+          </td>
+          <td class="text-center">
+            <%= form.number_field :dead_lift_reps, class:"w-1/3 text-center" %> x <%= form.number_field :dead_lift_series, class:"w-1/3 text-center" %>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="text-white w-1/2 sm:w-1/4 text-center p-2">
+      <div class="hover:bg-blue-800 bg-blue-600 p-2">
+        <%= form.submit %>
+      </div>
+    </div>
+
+  </div>
+
+
+<% end %>

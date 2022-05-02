@@ -1,0 +1,92 @@
+<div id="workouts">
+  <div class="w-full sm:grid sm:grid-cols-3">
+
+    <% @workouts.each do |workout| %>
+      <div class="bg-blue-200 sm:mr-6 mb-6 p-4">
+
+        <p class="mb-4 w-full font-bold">Fecha: <%= workout.day%></p>
+
+        <table class="w-full">
+          <tr>
+            <th class="w-1/3 text-left">Ejercicio</th>
+            <th class="w-1/3 text-center">Peso</th>
+            <th class="w-1/3 text-center">Reps / Series</th>
+          </tr>
+          <tr>
+            <td class="w-1/3 text-left">Dominadas</td>
+            <td class="w-1/3 text-center"><%= workout.v_pull_weight %><%= workout.v_pull_weight.present? ? " kg" : "-" %></td>
+            <td class="w-1/3 text-center">
+              <% if workout.v_pull_reps.present? %>
+                <%= workout.v_pull_reps%> x <%= workout.v_pull_series %>
+              <% else %>
+                <%= "-" %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td class="w-1/3 text-left">Press Militar</td>
+            <td class="w-1/3 text-center"><%= workout.v_push_weight %><%= workout.v_push_weight.present? ? " kg" : "-" %></td>
+            <td class="w-1/3 text-center">
+              <% if workout.v_push_reps.present? %>
+                <%= workout.v_push_reps%> x <%= workout.v_push_series %>
+              <% else %>
+                <%= "-" %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td class="w-1/3 text-left">Remo</td>
+            <td class="w-1/3 text-center"><%= workout.h_pull_weight %><%= workout.h_pull_weight.present? ? " kg" : "-" %></td>
+            <td class="w-1/3 text-center">
+              <% if workout.h_pull_reps.present? %>
+                <%= workout.h_pull_reps%> x <%= workout.h_pull_series %>
+              <% else %>
+                <%= "-" %>
+              <% end %>   
+            </td>
+          </tr>
+          <tr>
+            <td class="w-1/3 text-left">Press banca</td>
+            <td class="w-1/3 text-center"><%= workout.h_push_weight %><%= workout.h_push_weight.present? ? " kg" : "-" %></td>
+            <td class="w-1/3 text-center">
+              <% if workout.h_push_reps.present? %>
+                <%= workout.h_push_reps%> x <%= workout.h_push_series %>
+              <% else %>
+                <%= "-" %>
+              <% end %>   
+            </td>
+          </tr>
+          <tr>
+            <td class="w-1/3 text-left">Sentadillas</td>
+            <td class="w-1/3 text-center"><%= workout.squat_weight %><%= workout.squat_weight.present? ? " kg" : "-" %></td>
+            <td class="w-1/3 text-center">
+              <% if workout.squat_reps.present? %>
+                <%= workout.squat_reps%> x <%= workout.squat_series %>
+              <% else %>
+                <%= "-" %>
+              <% end %>   
+            </td>
+          </tr>
+          <tr>
+            <td class="w-1/3 text-left">Peso Muerto</td>
+            <td class="w-1/3 text-center"><%= workout.dead_lift_weight %><%= workout.dead_lift_weight.present? ? " kg" : "-" %></td>
+            <td class="w-1/3 text-center">
+              <% if workout.dead_lift_reps.present? %>
+                <%= workout.dead_lift_reps%> x <%= workout.dead_lift_series %>
+              <% else %>
+                <%= "-" %>
+              <% end %>   
+            </td>
+          </tr>
+        </table>
+
+        <div class="text-white text-center grid grid-cols-2 mt-4">
+          <%= link_to "Ver", workout, class:"bg-blue-600 hover:bg-blue-800 m-2 py-2 px-4" %>
+          <%= link_to "Editar", edit_workout_path(workout), class:"bg-blue-600 hover:bg-blue-800 p-2 m-2" %>
+        </div>
+
+      </div>
+    <% end %>
+
+  </div>
+</div>
