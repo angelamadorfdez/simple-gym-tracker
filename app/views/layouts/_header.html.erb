@@ -1,4 +1,24 @@
-<header>  
-    <%= link_to "Simple Gym Tracker", root_path, class:"font-bold underline" %>
-    <%= link_to "Crear nuevo", new_workout_path, class:"text-white bg-blue-600 hover:bg-blue-800 m-4 py-2 px-4" %>
+<header>
+  <div class="flex mb-6">
+
+    <div class="w-1/2">
+      <%= button_to "Simple Gym Tracker", root_path, method: :get, class:"font-bold underline mr-4" %> 
+    </div>
+
+    <div class="w-1/2 text-right">
+      <% if user_signed_in? %>
+        <%= button_to "Salir", destroy_user_session_path, method: :delete, class:"right"%>
+      <% else %>
+        <%= button_to "Iniciar sesión", new_user_session_path, method: :get %>
+      <% end %>
+    </div>
+
+  </div>
+
+  <% if user_signed_in? %>
+    <div class="text-white">
+      <%= button_to "Nuevo entrenamiento", new_workout_path, method: :get, class:"bg-blue-600 hover:bg-blue-800 py-2 px-4"  %>
+    </div>
+  <% end %>
+
 </header>

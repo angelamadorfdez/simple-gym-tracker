@@ -1,5 +1,7 @@
 class WorkoutsController < ApplicationController
   before_action :set_workout, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user?, only: [:edit, :update, :destroy]
 
   # GET /workouts or /workouts.json
   def index
@@ -38,7 +40,7 @@ class WorkoutsController < ApplicationController
   def update
     respond_to do |format|
       if @workout.update(workout_params)
-        format.html { redirect_to workout_path(@workout), notice: "Workout was successfully updated." }
+        format.html { redirect_to workouts_path, notice: "Workout was successfully updated." }
         format.json { render :show, status: :ok, location: @workout }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,6 +59,14 @@ class WorkoutsController < ApplicationController
     end
   end
 
+  #If it is the correct user, let him do things. If not, don't allow him.
+  def correct_user?
+    @workout = current_user.workouts.find_by(id: params[:id])
+    if @workout.nil?
+      redirect_to workouts_path, notice:"No puedes hacer eso"
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_workout
@@ -65,6 +75,6 @@ class WorkoutsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def workout_params
-      params.require(:workout).permit(:v_pull_weight, :v_pull_reps, :v_pull_series, :v_push_weight, :v_push_reps, :v_push_series, :h_pull_weight, :h_pull_reps, :h_pull_series, :h_push_weight, :h_push_reps, :h_push_series, :squat_weight, :squat_reps, :squat_series, :dead_lift_weight, :dead_lift_reps, :dead_lift_series, :day)
+      params.require(:workout).permit(:v_pull_weight, :v_pull_reps, :v_pull_series, :v_push_weight, :v_push_reps, :v_push_series, :h_pull_weight, :h_pull_reps, :h_pull_series, :h_push_weight, :h_push_reps, :h_push_series, :squat_weight, :squat_reps, :squat_series, :dead_lift_weight, :dead_lift_reps, :dead_lift_series, :day, :user_id)
     end
 end

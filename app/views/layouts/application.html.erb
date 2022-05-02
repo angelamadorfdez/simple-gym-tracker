@@ -13,19 +13,22 @@
 
   <body>
 
-    <div class="container mx-auto px-4 my-12">
-    <%= render "layouts/header" %>
+    <div class="container mx-auto my-8 px-4 sm:px-0">
+      <%= render "layouts/header" %>
     </div>
 
-
-    <div class="container mx-auto px-4 my-6">
-
+    <div class="container mx-auto my-8 px-4 sm:px-0">
       <% if notice.present? %>
         <p class="text-green-800 bg-green-200 p-2 mb-4"><%= notice %></p>
       <% end %>
 
+      <% if alert.present? %>  
+        <p  class="text-red-800 bg-red-200 p-2 mb-4"><%= alert %></p>
+      <% end %> 
+    </div>
+    
+    <div class="container mx-auto my-8 px-4 sm:px-0">
       <%= yield %>  
-
     </div>
 
   </body>
